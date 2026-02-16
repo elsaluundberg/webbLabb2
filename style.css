@@ -1,0 +1,483 @@
+/* Grundinställningar utifrån din rapport */
+body {
+    background: linear-gradient(to bottom, #2d5a2d, #121212); /* Mörkgrön fade [cite: 59] */
+    /* Förhindrar att gradienten upprepas */
+    background-repeat: no-repeat;
+    
+    /* Gör att gradienten täcker hela webbläsarfönstret oavsett mängd text */
+    min-height: 100vh;
+    
+    /* Valfritt: Gör att bakgrunden stannar kvar när man scrollar */
+    background-attachment: fixed;
+    color: white; /* Hög kontrast för målgruppen [cite: 89] */
+    font-family: 'Inter', sans-serif; /* Din valda font [cite: 60] */
+    margin: 0;
+
+    display: flex;
+    flex-direction: column;
+}
+
+
+
+
+/* HEADER: Denna styr hela header-sektionen */
+header {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    box-sizing: border-box;
+    background: rgba(26, 58, 26, 0.3); 
+    backdrop-filter: blur(15px); 
+    z-index: 1000; 
+}
+
+/* NAV UL: Denna styr själva listan i din meny */
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 80px; 
+}
+
+/* NAV A: Denna styr utseendet på själva länk-texten */
+nav a {
+    font-size: 1.8rem;
+    color: white;
+    text-decoration: none;
+    font-weight: 200;
+    position: relative; /* Behövs för att linjen nedan ska hamna rätt */
+    transition: all 0.3s ease; /* FLYTTAD HIT: Gör att ALLA ändringar (färg/skugga) tonas mjukt */
+}
+
+/* Denna regel aktiveras när man håller musen över länkarna */
+nav a:hover {
+    color: #a3c9a8; /* Ljusgrön färg vid hover */
+    text-shadow: 0px 0px 8px rgba(255, 255, 255, 0.3);
+}
+
+/* Effekt: En liten linje som växer fram under länken */
+nav a::after {
+    content: '';
+    display: block;
+    width: 0;
+    height: 1px;
+    background: #a3c9a8;
+    transition: width 0.3s; /* Gör att linjen växer fram mjukt */
+    position: absolute;
+    bottom: -5px;
+}
+
+nav a:hover::after {
+    width: 100%;
+}
+
+.logo-link {
+    text-decoration: none; /* Tar bort understreck */
+    color: inherit;       /* Behåller vit färg på texten */
+    display: flex;
+    align-items: center;
+}
+
+.logo-link:hover {
+    opacity: 0.8;         /* Ger en liten visuell feedback vid hover */
+    transition: 0.3s;
+}
+
+
+
+
+
+/* LOGO CONTAINER: Denna styr loggan med bild och text */
+/* Behållaren som håller både bild och text */
+.logo-container {
+    display: flex;
+    align-items: center; /* Centrerar texten vertikalt jämte bilden */
+    gap: 0px; /* Skapar ett litet mellanrum mellan bollen och texten */
+}
+
+/* Storleken på själva golfbollen */
+.logo {
+    height: 85px; /* Justera efter behov */
+    width: auto;
+}
+
+/* Stylingen för texten bredvid loggan */
+.logo-text {
+    font-family: 'Inter', sans-serif;
+    color: white; /* Hög kontrast för målgruppen */
+    line-height: 0.9; /* Gör att orden hamnar tätt ihop vertikalt */
+}
+
+/* Övre ordet (Gunnarn) - Tunnare */
+.name-top {
+    font-weight: 400; /* Eller 400 om 300 känns för tunt */
+    font-size: 2rem;
+}
+
+/* Undre ordet (Golfklubb) - Fetare */
+.name-bottom {
+    font-weight: bold; /* Mycket fet stil som i prototypen */
+    font-size: 2.3rem; /* Lite större för att ge tyngd */
+    text-transform: lowercase; /* Om du vill ha små bokstäver som i bilden */
+}
+
+
+
+
+
+/* HERO SECTION: Denna styr välkomstsektionen på startsidan */
+/*"Välkommen till gunnarns gk-textens placering*/
+.hero {
+    position: relative; /* Viktigt för att kunna placera videon bakom */
+    height: 70vh; 
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    overflow: hidden; /* Döljer video som sticker ut utanför ramen */
+    margin: 0; /* Vi tar bort den stora marginalen nu när vi har video */
+    align-items: flex-start; /* Gör så att vi kan styra avståndet från toppen */
+    padding-top: 320px;
+
+    -webkit-mask-image: linear-gradient(to bottom, black 70%, transparent 100%);
+    mask-image: linear-gradient(to bottom, black 70%, transparent 100%);
+}
+
+.hero-video {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    z-index: -1; /* Trycker bak videon bakom texten */
+    transform: translate(-50%, -50%);
+    object-fit: cover; /* Ser till att videon inte blir ihoptryckt */
+}
+
+/* Ett mörkt lager ovanpå videon så att vit text syns tydligt */
+.hero::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    /* Skapar en mjuk övergång från 40% svart till din bakgrundsfärg */
+    background: rgba(0, 0, 0, 0.4);
+    z-index: 0;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 1; /* Lägger texten ovanpå det mörka lagret */
+}
+
+/*Storleken på välkommen... texten*/
+.hero h1 {
+    font-weight: 400; /* Ger den tunna, eleganta känslan från prototypen */
+    font-size: 3.5rem;
+    margin-bottom: 0.2em; /* Minskat avstånd till undertexten */
+    letter-spacing: -0.01em;
+}
+
+/*Storleken på sloganen under*/
+.hero-subtext {
+    font-size: 2.5rem; /* Gör texten större (standard är oftast 1rem) */
+    font-weight: 200; /* Gör den lite tunnare för en elegant look som i prototypen */
+    margin-top: -5px;  /* Skapar lagom avstånd till rubriken ovanför */
+}
+
+
+
+
+/* --- SECTION: ANSLAGSTAVLA & NYHETSKORT --- */
+
+/* Behållaren för hela anslagstavlan */
+.noticeboard {
+    max-width: 1000px;
+    margin: 150px auto; 
+    padding: 0 20px;
+}
+
+/* Rubriken ANSLAGSTAVLA */
+.noticeboard h2 {
+    text-align: center;
+    font-size: 3.5rem;
+    font-weight: 300;
+    letter-spacing: 0.1em;
+    margin: 100px 0;
+}
+
+/* Bilden i kortet */
+.card-image img {
+    width: 290px; 
+    height: 230px;
+    object-fit: cover; 
+    border-radius: 4px;
+}
+
+/* Textinnehållet i kortet */
+.card-content {
+    flex: 1; 
+    position: relative;
+    line-height: 1.6;
+}
+
+/* Brödtexten i kortet */
+.card-content p {
+    font-size: 1.1rem; /* Enhetlig storlek för brödtext */
+    margin-bottom: 10px;
+}
+
+/* Datumet längst ner till höger */
+.date {
+    display: block;
+    text-align: right;
+    font-size: 0.8rem;
+    opacity: 0.6;
+    margin-top: 10px;
+}
+
+/* --- SECTION: GEMENSAMT FÖR ALLA UNDERSIDOR --- */
+.subpage-container {
+    max-width: 900px;
+    margin: 250px auto 50px auto; /* Enhetlig höjd från headern */
+    padding: 0 20px;
+}
+
+.page-title {
+    text-align: center;
+    font-size: 3.5rem;
+    font-weight: 300;
+    letter-spacing: 0.1em;
+    margin-bottom: 80px;
+    text-transform: uppercase;
+}
+
+.info-card {
+    background-color: rgba(255, 255, 255, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 40px;
+    border-radius: 10px;
+    margin-bottom: 40px;
+    line-height: 1.6;
+}
+
+/* Styling för video på undersidor */
+.info-card video {
+    width: 100%;
+    max-width: 800px; /* Förhindrar att videon blir gigantisk på stora skärmar */
+    display: block;
+    margin: 20px auto; /* Centrerar videon och ger luft runt om */
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3); /* Ger lite djup */
+    background-color: #000; /* Svart bakgrund medan videon laddas */
+}
+
+.flex-row {
+    display: flex;
+    gap: 30px;
+    align-items: flex-start;
+}
+
+/* --- SECTION: TABELLER (Verksamhet, Medlem, Spela) --- */
+.table-row {
+    display: flex;       /* Aktiverar flexbox så barnen lägger sig i rad */
+    flex-direction: row; /* Tvingar dem att ligga bredvid varandra */
+    gap: 30px;           /* Skapar ett snyggt mellanrum mellan tabellerna */
+    align-items: flex-start; /* Ser till att de börjar på samma höjd i toppen */
+    flex-wrap: wrap;     /* VIKTIGT: Gör att de hoppar under varandra på mobilen */
+}
+
+.activity-table {
+    flex: 1;             /* Gör att tabellerna delar på utrymmet (blir lika breda) */
+    min-width: 300px;    /* Hindrar dem från att bli för ihoptryckta */
+    border-collapse: collapse;
+    margin-bottom: 20px;
+    font-size: 0.95rem;
+}
+
+.activity-table th, .activity-table td {
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    padding: 12px;
+    text-align: left;
+}
+
+.activity-table th {
+    background: rgba(255, 255, 255, 0.05);
+}
+
+.activity-table caption {
+    white-space: nowrap; /* Hindrar radbrytning */
+    text-align: left;    /* Matchar tabellens övriga text */
+    padding-bottom: 10px; /* Ger lite luft ner till cellerna */
+}
+
+/* --- SECTION: SPECIFIKA MODULER (Bilder & Kontakt) --- */
+.card-image-large img {
+    width: 350px;
+    border-radius: 5px;
+    object-fit: cover;
+}
+
+.card-image-side img {
+    width: 420px; /* Ändra till t.ex. 500px eller 100% om den ska fylla boxen */
+    height: 490px;
+    border-radius: 5px;
+    object-fit: cover;
+}
+
+.contact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+    margin-top: 20px;
+}
+
+.member-list {
+    padding-left: 25px;
+    margin: 20px 0;
+    list-style-type: disc;
+}
+
+/* --- SECTION: KONTAKTFORMULÄR --- */
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    margin-top: 25px;
+}
+
+/* Lägger Namn och E-post bredvid varandra på stora skärmar */
+.form-row {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.form-row .form-group {
+    flex: 1;
+    min-width: 250px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    text-align: left;
+}
+
+.form-group label {
+    font-size: 0.9rem;
+    font-weight: bold;
+    color: #ddd;
+}
+
+/* Styling för inputfält, select och textarea */
+.contact-form input, 
+.contact-form select, 
+.contact-form textarea {
+    padding: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    background: rgba(255, 255, 255, 0.05);
+    color: white;
+    border-radius: 5px;
+    font-family: inherit;
+    font-size: 1rem;
+}
+
+.contact-form input:focus, 
+.contact-form textarea:focus {
+    outline: none;
+    border-color: #4CAF50; /* Grön fokusfärg */
+    background: rgba(117, 54, 54, 0.1);
+}
+
+/* Knappen */
+.submit-button {
+    background-color: #2e7d32; /* Golf-grön */
+    color: white;
+    padding: 15px 25px;
+    border: none;
+    border-radius: 5px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.3s ease;
+    align-self: flex-start; /* Knappen blir inte bredare än den behöver */
+}
+
+.submit-button:hover {
+    background-color: #1b5e20;
+}
+
+/* Specifik styling för bankartan */
+.course-map.large-map {
+    width: 100%;        /* Gör att den fyller hela boxens bredd */
+    max-width: 900px;   /* Sätter ett stopp så den inte blir för stor på stora skärmar */
+    height: auto;       /* VIKTIGT: Behåller kartans proportioner så den inte blir suddig eller utdragen */
+    display: block;     /* Tar bort tomrum under bilden */
+    margin: 20px auto;  /* Centrerar kartan och ger luft över/under */
+    border-radius: 8px; /* Rundar hörnen så de matchar dina andra boxar */
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1); /* Ger en svag skugga så den "lyfter" lite */
+}
+
+/* Behållaren för kartan */
+.map-container {
+    width: 100%;
+    overflow: hidden;   /* Ser till att inget sticker ut utanför boxen */
+    display: flex;
+    justify-content: center; /* Centrerar kartan horisontellt */
+}
+
+/* --- SECTION: FOOTER --- */
+
+/* Footer-behållaren som lägger info och sponsorer på rad */
+.footer-container {
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-start;
+    padding: 50px 20px;
+    margin-top: 150px;
+}
+
+/* Behållare för de två boxarna (Öppettider & Kontakt) */
+.info-boxes {
+    display: flex;
+    gap: 20px;
+}
+
+/* De ljusa boxarna i footern - Matchar nu heron och anslagstavlan */
+.footer-box {
+    background-color: rgba(255, 255, 255, 0.2); /* Samma ljusa stil som dina andra kort */
+    border: 1px solid rgba(255, 255, 255, 0.1); /* En tunn ram för enhetlighet */
+    padding: 25px;
+    border-radius: 10px;
+    min-width: 200px;
+    font-size: 0.9rem;
+    line-height: 1.6;
+}
+
+.footer-box h3 {
+    margin-top: 0;
+    font-size: 1.3rem; /* Justerad storlek för underrubrik */
+    letter-spacing: 0.1em;
+    font-weight: 400; 
+}
+
+/* Sponsor-sektionen med loggor */
+.sponsors {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); 
+    gap: 20px;
+    align-items: center;
+}
+
+.sponsors img {
+    max-width: 180px;
+    height: auto;
+    filter: brightness(0.9);
+}
