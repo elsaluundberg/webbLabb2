@@ -44,7 +44,7 @@ nav ul {
 
 /* NAV A: Denna styr utseendet på själva länk-texten */
 nav a {
-    font-size: 1.2rem;
+    font-size: 1.3rem;
     color: white;
     text-decoration: none;
     font-weight: 200;
@@ -78,7 +78,7 @@ nav a:hover::after {
 
 .logo-link {
     text-decoration: none; /* Tar bort understreck */
-    color: inherit;       /* Behåller vit färg på texten */
+    color: white;       /* Behåller vit färg på texten */
     display: flex;
     align-items: center;
 }
