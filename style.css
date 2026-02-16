@@ -44,10 +44,12 @@ nav ul {
 
 /* NAV A: Denna styr utseendet på själva länk-texten */
 nav a {
-    font-size: 1.8rem;
+    font-size: 1.2rem;
     color: white;
     text-decoration: none;
     font-weight: 200;
+    top: 30px;
+    margin-right: 40px;
     position: relative; /* Behövs för att linjen nedan ska hamna rätt */
     transition: all 0.3s ease; /* FLYTTAD HIT: Gör att ALLA ändringar (färg/skugga) tonas mjukt */
 }
