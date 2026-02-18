@@ -7,10 +7,10 @@ body {
     /* Gör att gradienten täcker hela webbläsarfönstret oavsett mängd text */
     min-height: 100vh;
     
-    /* Valfritt: Gör att bakgrunden stannar kvar när man scrollar */
+    /* Gör att bakgrunden stannar kvar när man scrollar */
     background-attachment: fixed;
-    color: white; /* Hög kontrast för målgruppen [cite: 89] */
-    font-family: 'Inter', sans-serif; /* Din valda font [cite: 60] */
+    color: white; /* Textens färg */
+    font-family: 'Inter', sans-serif; /* Min valda font [cite: 60] */
     margin: 0;
 
     display: flex;
@@ -24,12 +24,12 @@ body {
 header {
     display: flex;
     justify-content: space-between;
-    padding: 20px;
+    align-items: center; /* Centrerar logga och meny vertikalt */
+    padding: 10px 5%;   /* 10px uppe/nere, 5% på sidorna så den andas */
+    flex-wrap: wrap;
+    padding: 15px;
     position: fixed;
-    top: 0;
-    left: 0;
     width: 100%;
-    box-sizing: border-box;
     background: rgba(26, 58, 26, 0.3); 
     backdrop-filter: blur(15px); 
     z-index: 1000; 
@@ -39,19 +39,22 @@ header {
 nav ul {
     list-style: none;
     display: flex;
-    gap: 80px; 
+    gap: 40px; 
+    flex-wrap: wrap; /* Gör så att länkarna kan hoppa ner på ny rad */
+    justify-content: center;
+    
 }
 
 /* NAV A: Denna styr utseendet på själva länk-texten */
 nav a {
-    font-size: 1.3rem;
+    font-size: 1.5rem;
     color: white;
     text-decoration: none;
     font-weight: 200;
-    top: 30px;
-    margin-right: 40px;
-    position: relative; /* Behövs för att linjen nedan ska hamna rätt */
-    transition: all 0.3s ease; /* FLYTTAD HIT: Gör att ALLA ändringar (färg/skugga) tonas mjukt */
+    top: 20px;
+    margin-right: 45px;
+    position: relative;
+    transition: all 0.3s ease;
 }
 
 /* Denna regel aktiveras när man håller musen över länkarna */
@@ -287,12 +290,13 @@ nav a:hover::after {
 }
 
 /* --- SECTION: TABELLER (Verksamhet, Medlem, Spela) --- */
+
 .table-row {
-    display: flex;       /* Aktiverar flexbox så barnen lägger sig i rad */
-    flex-direction: row; /* Tvingar dem att ligga bredvid varandra */
-    gap: 30px;           /* Skapar ett snyggt mellanrum mellan tabellerna */
-    align-items: flex-start; /* Ser till att de börjar på samma höjd i toppen */
-    flex-wrap: wrap;     /* VIKTIGT: Gör att de hoppar under varandra på mobilen */
+    display: flex;              /* Aktiverar flexbox så barnen lägger sig i rad */
+    flex-direction: row;        /* Tvingar dem att ligga bredvid varandra */
+    gap: 30px;                  /* Skapar ett snyggt mellanrum mellan tabellerna */
+    align-items: flex-start;     /* Ser till att de börjar på samma höjd i toppen */
+    flex-wrap: wrap;            /* VIKTIGT: Gör att de hoppar under varandra på mobilen */
 }
 
 .activity-table {
