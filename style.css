@@ -1,7 +1,6 @@
 /* Grundinställningar utifrån din rapport */
 body {
-    background: linear-gradient(to bottom, #2d5a2d, #121212); /* Mörkgrön fade [cite: 59] */
-    /* Förhindrar att gradienten upprepas */
+    background: linear-gradient(to bottom, #2d5a2d, #121212); 
     background-repeat: no-repeat;
     
     /* Gör att gradienten täcker hela webbläsarfönstret oavsett mängd text */
@@ -10,7 +9,7 @@ body {
     /* Gör att bakgrunden stannar kvar när man scrollar */
     background-attachment: fixed;
     color: white; /* Textens färg */
-    font-family: 'Inter', sans-serif; /* Min valda font [cite: 60] */
+    font-family: 'Inter', sans-serif;
     margin: 0;
 
     display: flex;
@@ -24,8 +23,8 @@ body {
 header {
     display: flex;
     justify-content: space-between;
-    align-items: center; /* Centrerar logga och meny vertikalt */
-    padding: 10px 5%;   /* 10px uppe/nere, 5% på sidorna så den andas */
+    align-items: center; 
+    padding: 10px 5%;   
     flex-wrap: wrap;
     padding: 15px;
     position: fixed;
@@ -40,12 +39,12 @@ nav ul {
     list-style: none;
     display: flex;
     gap: 40px; 
-    flex-wrap: wrap; /* Gör så att länkarna kan hoppa ner på ny rad */
+    flex-wrap: wrap;
     justify-content: center;
     
 }
 
-/* NAV A: Denna styr utseendet på själva länk-texten */
+/* NAV A: Denna styr utseendet på länk-texten */
 nav a {
     font-size: 1.5rem;
     color: white;
@@ -59,7 +58,7 @@ nav a {
 
 /* Denna regel aktiveras när man håller musen över länkarna */
 nav a:hover {
-    color: #a3c9a8; /* Ljusgrön färg vid hover */
+    color: #a3c9a8;
     text-shadow: 0px 0px 8px rgba(255, 255, 255, 0.3);
 }
 
@@ -275,12 +274,12 @@ nav a:hover::after {
 /* Styling för video på undersidor */
 .info-card video {
     width: 100%;
-    max-width: 800px; /* Förhindrar att videon blir gigantisk på stora skärmar */
+    max-width: 800px; 
     display: block;
-    margin: 20px auto; /* Centrerar videon och ger luft runt om */
+    margin: 20px auto; 
     border-radius: 10px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3); /* Ger lite djup */
-    background-color: #000; /* Svart bakgrund medan videon laddas */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3); 
+    background-color: #000; 
 }
 
 .flex-row {
@@ -292,16 +291,16 @@ nav a:hover::after {
 /* --- SECTION: TABELLER (Verksamhet, Medlem, Spela) --- */
 
 .table-row {
-    display: flex;              /* Aktiverar flexbox så barnen lägger sig i rad */
-    flex-direction: row;        /* Tvingar dem att ligga bredvid varandra */
-    gap: 30px;                  /* Skapar ett snyggt mellanrum mellan tabellerna */
-    align-items: flex-start;     /* Ser till att de börjar på samma höjd i toppen */
-    flex-wrap: wrap;            /* VIKTIGT: Gör att de hoppar under varandra på mobilen */
+    display: flex;              
+    flex-direction: row;        
+    gap: 30px;                  
+    align-items: flex-start;    
+    flex-wrap: wrap;           
 }
 
 .activity-table {
-    flex: 1;             /* Gör att tabellerna delar på utrymmet (blir lika breda) */
-    min-width: 300px;    /* Hindrar dem från att bli för ihoptryckta */
+    flex: 1;             
+    min-width: 300px;    
     border-collapse: collapse;
     margin-bottom: 20px;
     font-size: 0.95rem;
@@ -318,9 +317,9 @@ nav a:hover::after {
 }
 
 .activity-table caption {
-    white-space: nowrap; /* Hindrar radbrytning */
-    text-align: left;    /* Matchar tabellens övriga text */
-    padding-bottom: 10px; /* Ger lite luft ner till cellerna */
+    white-space: nowrap; 
+    text-align: left;    
+    padding-bottom: 10px; 
 }
 
 /* --- SECTION: SPECIFIKA MODULER (Bilder & Kontakt) --- */
@@ -331,7 +330,7 @@ nav a:hover::after {
 }
 
 .card-image-side img {
-    width: 420px; /* Ändra till t.ex. 500px eller 100% om den ska fylla boxen */
+    width: 420px; 
     height: 490px;
     border-radius: 5px;
     object-fit: cover;
@@ -450,16 +449,16 @@ nav a:hover::after {
     margin-top: 150px;
 }
 
-/* Behållare för de två boxarna (Öppettider & Kontakt) */
+/* Öppettider & Kontakt */
 .info-boxes {
     display: flex;
     gap: 20px;
 }
 
-/* De ljusa boxarna i footern - Matchar nu heron och anslagstavlan */
+/* De ljusa boxarna i footern - Matchar heron och anslagstavlan */
 .footer-box {
-    background-color: rgba(255, 255, 255, 0.2); /* Samma ljusa stil som dina andra kort */
-    border: 1px solid rgba(255, 255, 255, 0.1); /* En tunn ram för enhetlighet */
+    background-color: rgba(255, 255, 255, 0.2); 
+    border: 1px solid rgba(255, 255, 255, 0.1); 
     padding: 25px;
     border-radius: 10px;
     min-width: 200px;
@@ -469,7 +468,7 @@ nav a:hover::after {
 
 .footer-box h3 {
     margin-top: 0;
-    font-size: 1.3rem; /* Justerad storlek för underrubrik */
+    font-size: 1.3rem; 
     letter-spacing: 0.1em;
     font-weight: 400; 
 }
@@ -486,4 +485,34 @@ nav a:hover::after {
     max-width: 180px;
     height: auto;
     filter: brightness(0.9);
+}
+
+@media print {
+    body {
+        background: white !important;
+        color: black !important;
+
+    }
+
+    header, .hero-video, .hero::after {
+        display: none !important; 
+    }
+
+    .hero {
+        height: auto;
+        padding: 20px 0;
+        mask-image: none;
+        -webkit-mask-image: none;
+    }
+
+    .info-card {
+        background: white !important;
+        border: 1px solid #ccc !important;
+        color: black !important;
+        page-break-inside: avoid; 
+        break-inside: avoid;
+        margin-bottom: 50px; 
+        margin-top: 50px;
+
+    }
 }
