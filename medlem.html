@@ -6,6 +6,7 @@
     <title>Medlem | Gunnarns Golfklubb</title>
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;400;700&display=swap" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
 </head>
 <body>
 
@@ -19,11 +20,19 @@
                 </div> 
             </div>
         </a>
+
         <nav>
             <ul>
                 <li><a href="spela_hos_oss.html">Spela hos oss</a></li>
                 <li><a href="anlaggning.html">Anläggning</a></li>
-                <li><a href="verksamhet.html">Verksamhet</a></li>
+                
+                <li class="menu-item-dropdown">
+                    <a href="#" id="verksamhet-trigger">Verksamhet ▼</a> <ul id="sub-menu-verksamhet" style="display: none;">
+                        <li><a href="verksamhet.html#tavlingar">Tävlingsanmälan & Avgifter</a></li>
+                        <li><a href="verksamhet.html#stallplats">Ställplats</a></li>
+                    </ul>
+                </li>               
+
                 <li><a href="medlem.html">Medlem</a></li>
                 <li><a href="om_oss.html">Om oss</a></li>
             </ul>
@@ -33,7 +42,8 @@
     <main class="subpage-container">
         <h1 class="page-title">MEDLEM</h1>
 
-        <section class="info-card">
+        <section class="info-card scroll-animate">
+            
             <h2>MEDLEMSANSÖKAN</h2>
             <p>Som medlem får du spelrätt på vår bana, tillgång till MinGolf och medlemskap i Svenska Golfförbundet. Medlemskapet ger dig också vår medlemsförsäkring (olycksfall och ansvar).</p>
             
@@ -45,7 +55,7 @@
                 <div class="form-row">
                     <div class="form-group">
                         <label for="name">Namn</label>
-                        <input type="text" id="name" name="name" placeholder="Ditt fullständiga namn" required>
+                        <input type="text" id="name" name="name" onfocus="focusEffect(this)" onblur="blurEffect(this)" placeholder="Ditt fullständiga namn" required>
                     </div>
                     <div class="form-group">
                         <label for="email">E-post</label>
@@ -69,18 +79,30 @@
                         <input type="text" id="name" name="name" placeholder="Gata, postnummer och ort" required>
                     </div>
 
-                <div class="form-group">
+                    <div class="form-group">
                         <label for="email">Medlemsform</label>
                         <input type="tel" id="email" name="email" placeholder="Önskad medlemsform enligt tabell" required>
                     </div>
+                
+                     <div class="form-group">
+                        <label for="email">Rabattkod</label>
+                        <input type="tel" id="email" name="email" placeholder="Ange rabattkod" required>
+                    </div>
 
-                <button type="submit" class="submit-button">Ansök om medlemskap</button>
+
+                <button type="button" class="submit-button" onclick="showConfirmation()">Ansök om medlemskap</button>
+
+                <div id="confirmationBox" style="display: none; margin-top: 20px;">
+                    <h3>Tack för din ansökan!</h3>
+                    <p>Vi har tagit emot dina uppgifter. En faktura kommer skickas till din e-post inom kort.</p>
+                </div>
+
             </form>
 
 
         </section>
 
-        <section class="info-card">
+        <section class="info-card scroll-animate">
             <h2>MEDLEMSFORMER & AVGIFTER</h2>
             
             <table class="activity-table full-width">
@@ -135,5 +157,22 @@
         </div>
     </footer>
 
+    <button id="deal-fab" 
+            onclick="showRandomDeal()" 
+            onmouseover="expandButton()" 
+            onmouseout="shrinkButton()">
+        Tryck här för att se<br>medlemserbjudande!
+    </button>
+
+        <div id="fab-deal-overlay" style="display: none;">
+            <div class="deal-content">
+                <span class="close-deal" onclick="closeDeal()">×</span>
+                <div id="random-deal-text">
+                    </div>
+            </div>
+        </div>
+
+    <script src="randomizer.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>
